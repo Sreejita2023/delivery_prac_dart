@@ -4,6 +4,7 @@ import 'package:prop2/common/ui_common.dart';
 import 'package:prop2/common/slider_common.dart';
 import 'package:prop2/controller/delivery_controller.dart';
 import 'package:prop2/common/alert_box.dart';
+import 'package:prop2/services/show_delivery_data.dart';
 
 class DeliverySetting extends StatefulWidget {
   const DeliverySetting({super.key});
@@ -26,7 +27,7 @@ class _DeliverySettingState extends State<DeliverySetting> {
 
   Future<void> addData() async {
     try {
-      String message = await Delivery().getUser(enableSelfDelivery,
+      String message = await Delivery().setUser(enableSelfDelivery,
           partnerDelivery, baseRadius, baseCharge, maxRadius, chargePerKm,maxOrder);
       if (!mounted) return; // Checks `this.mounted`, not `context.mounted`.
       UIHelper().dialogBuilder(context, title: "Successful", message: message);
@@ -172,6 +173,14 @@ class _DeliverySettingState extends State<DeliverySetting> {
                 ),
               ],
             ),
+            const SizedBox(height: 10,),
+            ButtonCommon(content: "Show Data", color: Colors.blueAccent, onPressed: ()=>{
+            Navigator.push(
+            context,
+            MaterialPageRoute(
+            builder: (context) => const ShowData()),
+            )
+            }),
             const SizedBox(height: 5,),
 
           ],

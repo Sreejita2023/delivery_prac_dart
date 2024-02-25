@@ -1,3 +1,5 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+
 class DeliverySettings {
 //   prop initialize
   bool enableSelfDelivery;
@@ -20,9 +22,18 @@ class DeliverySettings {
       required this.maxOrder});
 
   // fromJson
-  // factory DeliverySettings.fromJson(){
-  //
-  // }
+  factory DeliverySettings.fromJson(
+      DocumentSnapshot<Map<String, dynamic>> document) {
+    final data = document.data();
+    return DeliverySettings(
+        enableSelfDelivery: data?['enableSelfDelivery'],
+        partnerDelivery: data?['partnerDelivery'],
+        baseRadius: data?['baseRadius'],
+        baseCharge: data?['baseCharge'],
+        maxRadius: data?['maxRadius'],
+        chargePerKm: data?['chargePerKm'],
+        maxOrder: data?['maxOrder']);
+  }
 
   // toJson
   Map<String, dynamic> toJson() {
@@ -33,7 +44,7 @@ class DeliverySettings {
       'baseCharge': baseCharge,
       'maxRadius': maxRadius,
       'chargePerKm': chargePerKm,
-      'maxOrder':maxOrder,
+      'maxOrder': maxOrder,
     };
   }
 }
