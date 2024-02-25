@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "816740625768",
+    "project_id": "delivery-de2a4",
+    "storage_bucket": "delivery-de2a4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:816740625768:android:2febc7f7123b4221d33add",
+        "android_client_info": {
+          "package_name": "com.example.prop2"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyApQUvkKf3djE0XG9HJ1WSLP-5E4us8OmE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
